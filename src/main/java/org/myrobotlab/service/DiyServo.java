@@ -28,6 +28,7 @@ package org.myrobotlab.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.myrobotlab.framework.Platform;
 import org.myrobotlab.framework.Registration;
 import org.myrobotlab.framework.ServiceType;
 import org.myrobotlab.framework.interfaces.ServiceInterface;
@@ -789,6 +790,7 @@ public class DiyServo extends AbstractServo implements ServoControl, PinListener
     LoggingFactory.getInstance().setLevel(Level.INFO);
     try {
       // Runtime.start("webgui", "WebGui");
+      Platform.setVirtual(true);
       Runtime.start("gui", "SwingGui");
       // VirtualArduino virtual = (VirtualArduino) Runtime.start("virtual",
       // "VirtualArduino");
@@ -846,12 +848,12 @@ public class DiyServo extends AbstractServo implements ServoControl, PinListener
 
       diyServo.setMaxVelocity(-1);
 
-      // diyServo.setAutoDisable(true);
-      // diyServo.setMaxVelocity(10);
-      // diyServo.moveToBlocking(0);
-      // diyServo.moveToBlocking(180);
-      // diyServo.setMaxVelocity(-1);
-      // diyServo.moveTo(0);
+      diyServo.setAutoDisable(true);
+      diyServo.setMaxVelocity(10);
+      diyServo.moveToBlocking(0.0);
+      diyServo.moveToBlocking(180.0);
+      diyServo.setMaxVelocity(-1);
+      diyServo.moveTo(0.0);
 
       // Servo Servo = (Servo) Runtime.start("Servo", "Servo");
 
